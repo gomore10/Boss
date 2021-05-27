@@ -1,0 +1,15 @@
+#this is a comment line
+#the format is:
+#animation_name number_of_frames loop?(True/False) sound_filename(can be None)
+#duration movement_x,movement_y imageofs_x,imageofs_y rect_x,rect_y,rect_width,rect_height num_hurtboxes hurtbox0_x,hurtbox0_y,hurtbox0_width,hurtbox0_height num_hitboxes hitbox0_x,hitbox0_y,hitbox0_width,hitbox0_height damage
+#note0: each frame in the animation has the filename animation_name_framenumber.png
+#note1: movement not to used except for very specific cases where in-game velocity won't work
+#note2: NO BLANK LINES AT THE END!
+idle 2 True None
+70 0,0 0,0 8,0,22,78 1 8,0,22,78 0 0
+7 0,0 0,0 8,1,22,77 1 8,1,22,77 0 0
+walk 4 True None
+9 0,0 0,0 8,0,22,78 1 8,0,22,78 0 0
+9 0,0 0,0 8,1,22,77 1 8,1,22,77 0 0
+9 0,0 0,0 8,0,22,78 1 8,0,22,78 0 0
+9 0,0 0,0 8,1,22,77 1 8,1,22,77 0 0
