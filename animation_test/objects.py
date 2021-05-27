@@ -45,19 +45,17 @@ class Animation:
 		return False
 
 class Character(pygame.sprite.Sprite):
-	def __init__(self,pos,startanimation):
+	def __init__(self,pos):
 		pygame.sprite.Sprite.__init__(self)
 		self.pos = pos #position of character on screen
-		anim = Animation(startanimation[0],startanimation[1],startanimation[2],startanimation[3]) #create new Animation object
-		self.curanim = anim #current animation playing
+		self.curanim = None #current animation playing
 		
-		frame0 = self.curanim.framedata()
-		self.rect = frame0.rect #rect used for floor/wall collisions relative to pos
-		self.image = frame0.image #current display image
-		self.imageofs = frame0.imageofs #image offset relative to pos
-		self.hurtboxes = frame0.hurtboxes #areas where you can be hurt. [0,0] is pos.
-		self.hitboxes = frame0.hitboxes #areas where you can do damage. [0,0] is pos.
-		self.damage = frame0.damage #damage dealt if enemy hit on this frame
+		self.rect = 0
+		self.image = None
+		self.imageofs = 0
+		self.hurtboxes = 0
+		self.hitboxes = 0
+		self.damage = 0
 	
 	def update(self):
 		nextframe = self.curanim.update()
@@ -77,6 +75,8 @@ class Character(pygame.sprite.Sprite):
 		self.curanim = anim
 		
 		frame0 = self.curanim.framedata()
+		self.pos[0]+=frame0.movement[0] #update pos (rect and hit/hurtboxes are relative to pos so no need to change them)
+		self.pos[1]+=frame0.movement[1]
 		self.rect = frame0.rect #rect used for floor/wall collisions relative to pos
 		self.image = frame0.image #current display image
 		self.imageofs = frame0.imageofs #image offset relative to pos

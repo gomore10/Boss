@@ -77,7 +77,8 @@ def readanim(filename): #reads animation data from filename and stores it in ani
 
 def gameloop():
     global animation_database
-    player = Character([0,0],animation_database["walk"])
+    player = Character([0,0])
+    player.setanimation(animation_database["walk"])
     while True:
         for event in pygame.event.get():
             if event.type==pygame.QUIT:
