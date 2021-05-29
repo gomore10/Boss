@@ -94,4 +94,5 @@ def gameloop():
         clock.tick(60)
 
 readanim("animdata.txt")
+print(animation_database)
 gameloop()
